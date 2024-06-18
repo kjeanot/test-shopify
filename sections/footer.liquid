@@ -96,11 +96,30 @@
         {%- endif -%}
       {%- endform -%}
     </div>
-    {%  render 'breadcrumb' %}
+    {% render 'breadcrumb' %}
   </div>
   <div class="footer__content-bottom scroll-trigger animate--slide-in" data-cascade>
     <div class="footer__content-bottom-wrapper page-width">
-      <p>1</p>
+      <div class="footer-brand">
+        <img src="https://cdn.shopify.com/s/files/1/0601/7115/7755/files/Shop_logo_1.png?v=1680785473">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="footer-navigation">
+        {% for link in linklists.menu-footer.links -%}
+          <div class="footer-navigation__col">
+            <h2>{{ link.title | link_to: link.url }}</h2>
+            {% for child_link in link.links %}
+              <ul>
+                <li>{{ child_link.title | link_to: child_link.url }}</li>
+              </ul>
+            {% endfor %}
+          </div>
+        {%- endfor %}
+      </div>
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
