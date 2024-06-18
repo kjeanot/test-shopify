@@ -3350,6 +3350,38 @@ details-disclosure > details {
   }
 }
 
+/* Breadcrumbs */
+
+.breadcrumbs {
+  margin: 0 auto 2em auto;
+  font-size: 12px;
+  text-align: center;
+}
+
+.breadcrumbs__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs__item {
+  display: inline-block;
+  padding: 0 0.2rem;
+}
+
+.breadcrumbs__item:not(:last-child):after {
+  content: '/';
+}
+
+
+.breadcrumbs__link, .breadcrumbs__item a{
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+
+
 /* Element Hovers: Vertical Lift, 3d Lift */
 
 @media (prefers-reduced-motion: no-preference) and (hover: hover) {
