@@ -101,22 +101,22 @@
   <div class="footer__content-bottom scroll-trigger animate--slide-in" data-cascade>
     <div class="footer__content-bottom-wrapper page-width">
       <div class="footer-brand">
-        <img src="https://cdn.shopify.com/s/files/1/0601/7115/7755/files/Shop_logo_1.png?v=1680785473">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+        <img class="footer-brand__logo" src="https://cdn.shopify.com/s/files/1/0601/7115/7755/files/Shop_logo_1.png?v=1680785473">
+        <ul class="footer-brand__social">
+          <li><a href="#">{% render 'icon-facebook' %}</a></li>
+          <li><a href="#">{% render 'icon-tiktok' %}</a></li>
+          <li><a href="#">{% render 'icon-instagram' %}</a></li>
         </ul>
       </div>
       <div class="footer-navigation">
         {% for link in linklists.menu-footer.links -%}
           <div class="footer-navigation__col">
             <h2>{{ link.title | link_to: link.url }}</h2>
-            {% for child_link in link.links %}
-              <ul>
+            <ul>
+              {% for child_link in link.links %}
                 <li>{{ child_link.title | link_to: child_link.url }}</li>
-              </ul>
-            {% endfor %}
+              {% endfor %}
+            </ul>
           </div>
         {%- endfor %}
       </div>
