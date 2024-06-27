@@ -120,10 +120,10 @@
 
       {% liquid
         assign float_price = price | times: 1.0
-        assign float_compare_at_price = compare_at_price | times: 1.0    
+        assign float_compare_at_price = compare_at_price | times: 1.0
       %}
-      
-      {{ float_price | minus: float_compare_at_price | divided_by: float_compare_at_price | times: 100 | round: 1 }}%
+
+      {{ float_price | minus: float_compare_at_price | divided_by: float_compare_at_price | times: 100 | round: 0 }}%
     </span>
 
     <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">

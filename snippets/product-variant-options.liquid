@@ -24,9 +24,12 @@
   assign product_form_id = 'product-form-' | append: section.id
 -%}
 
+
 {%- for value in option.values -%}
   {%- liquid
     assign option_disabled = true
+
+    assign color_option = value.variant.metafields.custom.product_color
 
     for option1_name in variants_option1_arr
       case option.position
@@ -72,6 +75,7 @@
       render 'swatch-input', id: input_id, name: option.name, value: value | escape, product_form_id: product_form_id, checked: checked, disabled: option_disabled, shape: block.settings.swatch_shape, help_text: label_unavailable
     %}
   {%- elsif picker_type == 'button' -%}
+
     <input
       type="radio"
       id="{{ input_id }}"
@@ -84,8 +88,15 @@
       {% if option_disabled %}
       class="disabled"
       {% endif %}>
-    <label for="{{ input_id }}">
-      {{ value -}}
+    <label
+      for="{{ input_id }}"
+      {% if option.name == "Couleur" %}
+      style="background: {{ color_option }};"
+      class="color-pill"
+      {% endif %}>
+      {% unless option.name == "Couleur" %}
+        {{ value -}}
+      {% endunless %}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}

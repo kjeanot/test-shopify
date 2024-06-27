@@ -249,6 +249,18 @@ a.product__text {
 .product__title {
   word-break: break-word;
   margin-bottom: 1.5rem;
+  font-family: "Inter", sans-serif;
+}
+
+.product__title h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.product__title p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .product__title > * {

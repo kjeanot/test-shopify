@@ -57,6 +57,9 @@
             block: block,
             picker_type: picker_type
           %}
+          {% if option.name == "Taille" %}
+          <p id="size-guide">Guide des tailles</p>
+          {% endif %}
         </fieldset>
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">

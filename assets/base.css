@@ -1829,7 +1829,9 @@ input[type='checkbox'] {
 
 .form__label {
   display: block;
-  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .form__message {

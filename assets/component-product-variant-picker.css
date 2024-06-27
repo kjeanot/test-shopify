@@ -59,6 +59,8 @@ variant-selects {
 
 
 /* Custom styles for Pill display type */
+
+
 .product-form__input--pill input[type='radio'] + label {
   border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
   background-color: rgb(var(--color-background));
@@ -67,17 +69,26 @@ variant-selects {
   color: rgb(var(--color-foreground));
   display: inline-block;
   margin: 0.7rem 0.5rem 0.2rem 0;
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
+  padding: 0;
+  height: 3.2rem;
+  width: 3.2rem;
+  font-size: 1.2rem;
   letter-spacing: 0.1rem;
   line-height: 1;
   text-align: center;
   transition: border var(--duration-short) ease;
   cursor: pointer;
   position: relative;
+  place-content: center;
 }
 
-.product-form__input--pill input[type='radio'] + label:before {
+.product-form__input--pill input[type='radio'] + label.color-pill {
+  width: 24px; 
+  height: 24px; 
+  padding: 0;
+}
+
+.product-form__input--pill input[type='radio'] + label:before:not(.color-pill) {
   content: '';
   position: absolute;
   top: calc(var(--variant-pills-border-width) * -1);
@@ -98,6 +109,12 @@ variant-selects {
   background-color: rgb(var(--color-foreground));
   color: rgb(var(--color-background));
 }
+
+.product-form__input--pill input[type='radio']:checked + label.color-pill {
+ border: 3px solid #000;
+}
+
+
 
 @media screen and (forced-colors: active) {
   .product-form__input--pill input[type='radio']:checked + label {
