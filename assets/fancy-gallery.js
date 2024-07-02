@@ -1,11 +1,17 @@
-const container = document.getElementById("productCarousel");
-const options = { 
-  Thumbs: {
-    type: "classic",
-  },
- };
-
-new Carousel(container, options);
+new Carousel(document.getElementById("productCarousel"), {
+  Dots: false,
+    Thumbs: {
+      type: 'classic',
+      Carousel: {
+        axis: 'x',
+        breakpoints: {
+          '(min-width: 750px)': {
+            axis: 'y',
+          },
+        },
+      },
+    },
+}, { Thumbs });
 
 Fancybox.bind("[data-fancybox]", {
   // Your custom options

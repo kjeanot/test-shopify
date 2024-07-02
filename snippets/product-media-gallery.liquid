@@ -16,12 +16,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" />
 
 {%- style -%}
+
+
   #productContainer {
-    --product-view-height: 900px;
+    --product-view-height: 70vh;
   }
+
 
   #productContainer .f-thumbs.is-classic.is-vertical {
     height: var(--product-view-height, 100%);
+    max-width: 90px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #productContainer {
+      display: flex;
+      flex-direction: row-reverse;
+    }
   }
 
 
@@ -79,6 +90,7 @@
     --f-button-svg-filter: none;
 
     height: var(--product-view-height);
+    padding: 0;
   }
 
   #productCarousel .f-carousel__slide {
@@ -102,6 +114,12 @@
   @media (hover: hover) {
     #productCarousel:hover .f-carousel__nav {
       opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #productCarousel {
+      padding-left: 1rem;
     }
   }
 
@@ -189,13 +207,7 @@
     id="GalleryStatus-{{ section.id }}"
     class="visually-hidden"
     role="status"></div>
-  <slider-component id="productContainer" class="
-      ">
-    {%- unless is_duplicate -%}
-      <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
-        {{ 'accessibility.skip_to_product_info' | t }}
-      </a>
-    {%- endunless -%}
+  <slider-component id="productContainer" class="flex">
     <ul
       id="productCarousel"
       class="f-carousel md:order-last"
@@ -215,32 +227,6 @@
         {%- endunless -%}
       {%- endfor -%}
     </ul>
-    {%- unless is_duplicate -%}
-      <div class="slider-buttons no-js-hidden quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
-        <button
-          type="button"
-          class="slider-button slider-button--prev"
-          name="previous"
-          aria-label="{{ 'general.slider.previous_slide' | t }}">
-          {% render 'icon-caret' %}
-        </button>
-        <div class="slider-counter caption">
-          <span class="slider-counter--current">1</span>
-          <span aria-hidden="true">
-            /
-          </span>
-          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-          <span class="slider-counter--total">{{ media_count }}</span>
-        </div>
-        <button
-          type="button"
-          class="slider-button slider-button--next"
-          name="next"
-          aria-label="{{ 'general.slider.next_slide' | t }}">
-          {% render 'icon-caret' %}
-        </button>
-      </div>
-    {%- endunless -%}
   </slider-component>
   {%- if first_3d_model -%}
     <button
