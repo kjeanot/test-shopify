@@ -167,11 +167,53 @@
                   {%- endif -%}
                 </p>
               {%- when 'description' -%}
+                <div class="product__meta">
                 {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                    {{ product.description }}
-                  </div>
+                  <details>
+                    <summary>
+                      <div class="summary__title">
+                        <h2 class="h4 accordion__title inline-richtext">
+                          Description
+                        </h2>
+                      </div>
+                      {% render 'icon-caret' %}
+                    </summary>
+                    <div class="accordion__content rte">
+                      {{ product.description }}
+                    </div>
+                  </details>
                 {%- endif -%}
+                {%- if product.metafields.custom.composition != blank -%}
+                  <details>
+                    <summary>
+                      <div class="summary__title">
+                        <h2 class="h4 accordion__title inline-richtext">
+                          Composition et entretien
+                        </h2>
+                      </div>
+                      {% render 'icon-caret' %}
+                    </summary>
+                    <div class="accordion__content rte">
+                      {{ product.metafields.custom.composition }}
+                    </div>
+                  </details>
+                {%- endif -%}
+                {%- if product.metafields.custom.shipping != blank -%}
+                  <details>
+                    <summary>
+                      <div class="summary__title">
+                        <h2 class="h4 accordion__title inline-richtext">
+                          Livraison & retours
+                        </h2>
+                      </div>
+                      {% render 'icon-caret' %}
+                    </summary>
+                    <div class="accordion__content rte">
+                      {{ product.metafields.custom.shipping }}
+                    </div>
+                  </details>
+                {%- endif -%}
+                </div>
               {%- when 'sku' -%}
                 <p
                   class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -221,9 +263,9 @@
                 <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">
                   {{- block.settings.text -}}
                 </a>
-              {%- when 'share' -%}
+              {% comment %} {%- when 'share' -%}
                 {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
-                {% render 'share-button', block: block, share_link: share_url %}
+                {% render 'share-button', block: block, share_link: share_url %} {% endcomment %}
 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}

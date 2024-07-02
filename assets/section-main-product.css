@@ -5,7 +5,6 @@
 .product.grid {
   gap: 0;
 }
-
 .product--no-media {
   max-width: 57rem;
   margin: 0 auto;
@@ -60,7 +59,7 @@
 
   .product--large:not(.product--no-media) .product__info-wrapper {
     padding: 0 0 0 4rem;
-    max-width: 35%;
+    max-width: 40%;
     width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
@@ -244,6 +243,14 @@
 }
 .buybutton .product-form {
   margin: 0;
+}
+
+.product__meta {
+  margin: 2rem 0;
+}
+
+.product__meta details {
+  padding: 1rem 0;
 }
 
 .product__text {
