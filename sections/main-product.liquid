@@ -32,6 +32,7 @@
     }
   {%- endstyle -%}
   
+  <script src="{{ 'wish.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
@@ -78,6 +79,7 @@
           data-url="{{ product.url }}"
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
+        <div id="wish" data-product="{{ product.id }}">{% render 'icon-heart' %}</div>
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
           {%- for block in section.blocks -%}

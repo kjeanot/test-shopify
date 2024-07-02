@@ -53,12 +53,16 @@
 
 @media screen and (min-width: 990px) {
   .product--large:not(.product--no-media) .product__media-wrapper {
-    max-width: 50%;
+    display: flex;
+    align-items: center;
+    max-width: 55%;
     width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
-    padding: 0 0 0 4rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 10rem;
     max-width: 50%;
     width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
   }
@@ -78,6 +82,16 @@
     max-width: 45%;
     width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
   }
+}
+
+#wish {
+  position: absolute;
+  right: 0;
+  top: 1.5rem;
+}
+
+.in-wishlist {
+  color: red;
 }
 
 /* Dynamic checkout */
@@ -324,6 +338,7 @@ a.product__text {
 @media screen and (min-width: 750px) {
   .product__info-container {
     max-width: 60rem;
+    flex: 1;
   }
 
   .product__info-container .price--on-sale .price-item--regular {
