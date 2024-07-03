@@ -3,10 +3,12 @@ new Carousel(document.getElementById("productCarousel"), {
     Thumbs: {
       type: 'classic',
       Carousel: {
-        axis: 'x',
+        enabled: false,
         breakpoints: {
           '(min-width: 750px)': {
             axis: 'y',
+            enabled: true,
+            navigation: true
           },
         },
       },
