@@ -18,7 +18,7 @@
     bottom: 10vh;
     z-index: 10;
     width: 100%;
-    max-width: 40vw;
+    max-width: 90vw;
     padding: 1rem;
     background-color: white;
     box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
@@ -49,6 +49,15 @@
 
   .side-panel__content > * {
     width: 100%;
+  }
+
+  media screen and (min-width: 750px) {
+    .side-panel {
+      top: 10vh;
+      right: 10vh;
+      bottom: 10vh;
+      width: 40vw;
+    }
   }
 
 {% endstyle -%}
