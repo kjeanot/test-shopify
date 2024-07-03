@@ -35,6 +35,10 @@
     height: 24px;
   }
 
+  .header__icon .feather-heart {
+    fill: #fff;
+  }
+
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
       width: 75%;
@@ -215,7 +219,7 @@
       {%- endfor -%}
 
       <a href="/pages/wishlist" class="header__icon small-hide">
-        {% render 'wishlist' %}
+        {% render 'icon-heart' %}
       </a>
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">

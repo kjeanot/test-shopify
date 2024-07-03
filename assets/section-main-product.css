@@ -88,10 +88,12 @@
   position: absolute;
   right: 0;
   top: 1.5rem;
+  fill: none;
 }
 
-.in-wishlist {
+#wish.in-wishlist {
   color: red;
+  fill: red;
 }
 
 /* Dynamic checkout */
